@@ -143,11 +143,11 @@ section.stats {
 }
 img.stats--fondo {
   opacity: 0;
-  width: 150vw;
+  width: 129vw;
   filter: brightness(0.5);
   transform: rotateY(180deg);
   position: relative;
-  left: -155px;
+  left: -85px;
   top: 80px;
   z-index: -1;
   transition: all 1.5s;
@@ -397,7 +397,7 @@ img.logo--sec {
   color: #dbde98;
   transition: all 0.7s;
 }
-img.slide--logo {
+.slide--logo {
   width: 8%;
   transition: all 0.7s;
 }
@@ -447,10 +447,14 @@ img.slide--logo {
   width: calc(50vw * 12);
   display: flex;
   gap: 2vw;
-  animation: scroll 40s alternate infinite;
+  animation: scroll 30s alternate infinite;
 }
 .sponsor {
   width: 50vw;
+}
+.original--logo {
+  width: 15%;
+  transition: all 0.8s;
 }
 @keyframes flotar {
   0% {

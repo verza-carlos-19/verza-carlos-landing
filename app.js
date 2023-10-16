@@ -65,8 +65,8 @@ const showStats = (arg, num, numDos) => {
     countRacesBox.style.opacity = "1";
     countYearsBox.style.opacity = "1";
     fondoStats.style.opacity = "1";
-    fondoStats.style.width = "150vw";
-    fondoStats.style.left = "-155px";
+    fondoStats.style.width = "133vw";
+    fondoStats.style.left = "-85px";
     yearsTxt.style.fontSize = "12vw";
     racesTxt.style.fontSize = "12vw";
     countRaces.style.fontSize = "20vw";
