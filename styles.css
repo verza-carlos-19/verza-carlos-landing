@@ -272,6 +272,8 @@ h3 {
   filter: drop-shadow(0px 0px 4.5rem #dbde98);
 }
 .popup--img {
+  width: 100%;
+  /* height: 55vw; */
   clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 11%, 11% 0);
 }
 
@@ -325,6 +327,9 @@ h3 {
     rgba(18, 15, 18, 0.41360294117647056) 98%,
     rgba(16, 11, 12, 0) 100%
   );
+  opacity: 1;
+  transition: all 3s;
+  transform-origin: top;
 }
 img.logo--sec {
   width: 90%;
@@ -342,10 +347,17 @@ img.logo--sec {
   gap: 0;
 }
 .sm--logo {
-  width: 100%;
-  padding-bottom: 12vw;
-  padding-top: 10vw;
+  width: 60%;
+  padding-bottom: 5vw;
+  padding-top: 5vw;
   transition: all 0.5s;
+  filter: drop-shadow(2px 4px 17px rgb(0, 0, 0));
+}
+img.sm--logo.logo--sarr {
+  width: 100%;
+  padding-bottom: 2vw;
+  padding-top: 10vw;
+  filter: drop-shadow(-14px -3px 19px rgb(255, 255, 255));
 }
 .stat--sec p {
   font-size: 6vw;
@@ -366,9 +378,9 @@ img.logo--sec {
   filter: drop-shadow(0 0 3rem rgb(255, 145, 0, 0.3));
 }
 .logo--wrc {
-  width: 90%;
-  /* filter: drop-shadow(0 0 1rem rgb(255, 145, 0)); */
-  filter: drop-shadow(0 0 2rem rgb(212, 175, 55));
+  width: 53vw;
+  padding-bottom: 10vw;
+  filter: drop-shadow(8px 5px 19px rgb(212, 175, 55));
 }
 
 .slider--text {
@@ -404,7 +416,7 @@ img.logo--sec {
 
 .slider--img {
   width: 97vw;
-  transition: all 1.5s;
+  transition: all 1.8s;
 }
 .first {
   width: 190vw;
@@ -417,7 +429,6 @@ img.logo--sec {
   display: none;
 }
 .slider {
-  padding: 0vw;
   display: flex;
   overflow: auto;
   position: relative;
@@ -426,7 +437,8 @@ img.logo--sec {
   z-index: 0;
   left: -7rem;
   top: -15rem;
-  transition: all 1s;
+  margin-bottom: -7rem;
+  transition: all 2s;
 }
 .sponsors h2 {
   font-size: 10vw;
@@ -434,7 +446,7 @@ img.logo--sec {
   font-family: var(--font2);
 }
 .sponsors {
-  padding: 15vw 10vw;
+  padding: 5vw;
   overflow: hidden;
   width: 80vw;
   margin: auto;
@@ -444,13 +456,21 @@ img.logo--sec {
 }
 
 .sponsors--logos {
-  width: calc(50vw * 12);
+  width: calc(45vw * 11);
   display: flex;
-  gap: 2vw;
-  animation: scroll 30s alternate infinite;
+  gap: 10vw;
+  animation: scroll 15s linear infinite;
+}
+.sponsor .imgSp {
+  width: 100%;
+}
+.casaMedina {
+  width: 60%;
 }
 .sponsor {
-  width: 50vw;
+  width: 35vw;
+  display: flex;
+  align-items: center;
 }
 .original--logo {
   width: 15%;
@@ -484,9 +504,9 @@ img.logo--sec {
 }
 @keyframes scroll {
   0% {
-    transform: translateX(-10vw);
+    transform: translateX(-0vw);
   }
   100% {
-    transform: translateX(calc(-42vw * 6));
+    transform: translateX(calc(-45vw * 8));
   }
 }

@@ -14,24 +14,81 @@ const popups = document.querySelectorAll(".stat--popup");
 const sliderImg = document.querySelectorAll(".slider--img");
 const slider = document.querySelector(".slider");
 const btnSponsors = document.querySelector(".pruebaSponsors");
+const racesSecs = document.querySelector(".races--secs");
+
+function imprimirNumerosConIntervalo(
+  finalNumero,
+  tiempoIntervaloInicial,
+  numeroCambioIntervalo,
+  nuevoTiempoIntervalo,
+  element,
+  bf,
+  af
+) {
+  let numero = 0;
+  let intervalo = setInterval(() => {
+    element.innerText = bf + numero + af;
+    numero++;
+
+    // Verifica si el número alcanzó el punto de cambio del intervalo
+    if (numero === numeroCambioIntervalo) {
+      clearInterval(intervalo); // Detiene el intervalo actual
+      tiempoIntervaloInicial = nuevoTiempoIntervalo; // Actualiza el tiempo de intervalo
+      intervalo = setInterval(intervalCallback, tiempoIntervaloInicial); // Crea un nuevo intervalo con el nuevo tiempo
+    }
+
+    // Verifica si se alcanzó el número final
+    if (numero > finalNumero) {
+      clearInterval(intervalo); // Detiene el intervalo cuando se alcanza el número final
+    }
+  }, tiempoIntervaloInicial);
+
+  function intervalCallback() {
+    element.innerText = bf + numero + af;
+    numero++;
+    // Verifica si se alcanzó el número final
+    if (numero > finalNumero) {
+      clearInterval(intervalo); // Detiene el intervalo cuando se alcanza el número final
+    }
+  }
+}
 
 const showSlider = (arg) => {
   if (arg) {
     sliderImg[0].style.width = "98vw";
+    sliderImg[1].style.width = "98vw";
+    sliderImg[2].style.width = "98vw";
+    sliderImg[3].style.width = "98vw";
     slider.style.width = "100vw";
     slider.style.left = "0";
-    slider.style.top = "0rem";
+    slider.style.top = "-9rem";
     slider.style.padding = "1vw";
     slider.style.zIndex = "0";
     console.log("ok");
   } else {
     console.log("first");
-    sliderImg[0].style.width = "190vw";
+    sliderImg[0].style.width = "180vw";
+    sliderImg[1].style.width = "180vw";
+    sliderImg[2].style.width = "190vw";
+    sliderImg[3].style.width = "190vw";
     slider.style.width = "180vw";
     slider.style.left = "-7rem";
     slider.style.top = "-15rem";
     slider.style.padding = "0";
     slider.style.zIndex = "0";
+  }
+};
+
+const hideRaces = (arg) => {
+  if (arg) {
+    // setInterval((racesSecs.style.opacity = "0"), 1000);
+    // racesSecs.style.scale = 0;
+    // racesSecs.style.transform = "scaleY(0)";
+    racesSecs.style.opacity = "0";
+  } else {
+    // setInterval((racesSecs.style.opacity = "1"), 1000);
+    // racesSecs.style.transform = "scaleY(1)";
+    racesSecs.style.opacity = "1";
   }
 };
 
@@ -100,6 +157,7 @@ const showPresentation = (arg) => {
     showMoreInfo.style.borderBottom = "1px solid rgb(219, 222, 152, 0)";
   }
 };
+
 const counterScroll = () => {
   const scroll = window.scrollY;
   if (scroll > 0) {
@@ -130,10 +188,15 @@ const counterScroll = () => {
         imprimirNumerosConIntervalo(15, 10, 10, 250, countYears, "+", "años");
       }
     }
-    if (scroll > 2600) {
+    if (scroll > 2650) {
       showSlider(true);
     } else {
       showSlider(false);
+    }
+    if (scroll > 2750) {
+      hideRaces(true);
+    } else {
+      hideRaces(false);
     }
     // if (scroll > 2900) {
     //   showshowRacesSec(true);
@@ -159,45 +222,13 @@ const counterScroll = () => {
     } else {
       showSlider(false);
     }
+    if (scroll > 1700) {
+      hideRaces(true);
+    } else {
+      hideRaces(false);
+    }
   }
 };
-
-function imprimirNumerosConIntervalo(
-  finalNumero,
-  tiempoIntervaloInicial,
-  numeroCambioIntervalo,
-  nuevoTiempoIntervalo,
-  element,
-  bf,
-  af
-) {
-  let numero = 0;
-  let intervalo = setInterval(() => {
-    element.innerText = bf + numero + af;
-    numero++;
-
-    // Verifica si el número alcanzó el punto de cambio del intervalo
-    if (numero === numeroCambioIntervalo) {
-      clearInterval(intervalo); // Detiene el intervalo actual
-      tiempoIntervaloInicial = nuevoTiempoIntervalo; // Actualiza el tiempo de intervalo
-      intervalo = setInterval(intervalCallback, tiempoIntervaloInicial); // Crea un nuevo intervalo con el nuevo tiempo
-    }
-
-    // Verifica si se alcanzó el número final
-    if (numero > finalNumero) {
-      clearInterval(intervalo); // Detiene el intervalo cuando se alcanza el número final
-    }
-  }, tiempoIntervaloInicial);
-
-  function intervalCallback() {
-    element.innerText = bf + numero + af;
-    numero++;
-    // Verifica si se alcanzó el número final
-    if (numero > finalNumero) {
-      clearInterval(intervalo); // Detiene el intervalo cuando se alcanza el número final
-    }
-  }
-}
 
 // Ejemplo de uso: contar hasta 15, cambiar el intervalo cuando se llega a 5, y establecer un nuevo intervalo de 500 milisegundos (0.5 segundos)
 
