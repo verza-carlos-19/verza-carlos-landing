@@ -17,11 +17,11 @@ const btnSponsors = document.querySelector(".pruebaSponsors");
 
 const showSlider = (arg) => {
   if (arg) {
-    sliderImg[0].style.width = "96vw";
+    sliderImg[0].style.width = "98vw";
     slider.style.width = "100vw";
     slider.style.left = "0";
-    slider.style.top = "-5rem";
-    slider.style.padding = "2vw";
+    slider.style.top = "0rem";
+    slider.style.padding = "1vw";
     slider.style.zIndex = "0";
     console.log("ok");
   } else {
@@ -32,21 +32,6 @@ const showSlider = (arg) => {
     slider.style.top = "-15rem";
     slider.style.padding = "0";
     slider.style.zIndex = "0";
-  }
-};
-
-const renderStat = (cont, i, bf, af) => {
-  cont.innerText = bf + i + af;
-};
-
-const counter = (cont, point, poinTime, time, max, bf, af) => {
-  for (let i = 0; i <= max; i++) {
-    // if (point < i) {
-    //   setTimeout(renderStat, poinTime, cont, i, bf, af);
-    // } else {
-    //   setTimeout(renderStat, time, cont, i, bf, af);
-    // }
-    setTimeout(renderStat, time, cont, i, bf, af);
   }
 };
 
@@ -131,24 +116,48 @@ const counterScroll = () => {
     portada.style.width = "80%";
     cajaHero.style.top = "-480px";
   }
-  if (scroll > 250) {
-    showStats(true, 900, 1060);
-  } else {
-    showStats(false);
-  }
-
-  if (scroll > 1500) {
-    showSlider(true);
-  } else {
-    showSlider(false);
-  }
-
-  if (scroll > 350 && scroll < 1000) {
-    if (countRaces.textContent === "0") {
-      imprimirNumerosConIntervalo(150, 15, 145, 150, countRaces, "+", "");
+  if (showMoreInfo.textContent === "VER MENOS") {
+    if (scroll > 1200) {
+      showStats(true, 1970, 2050);
+    } else {
+      showStats(false);
     }
-    if (countYears.textContent === "0") {
-      imprimirNumerosConIntervalo(15, 10, 7, 200, countYears, "+", "años");
+    if (scroll > 550 && scroll < 2100) {
+      if (countRaces.textContent === "0") {
+        imprimirNumerosConIntervalo(150, 15, 145, 250, countRaces, "+", "");
+      }
+      if (countYears.textContent === "0") {
+        imprimirNumerosConIntervalo(15, 10, 10, 250, countYears, "+", "años");
+      }
+    }
+    if (scroll > 2600) {
+      showSlider(true);
+    } else {
+      showSlider(false);
+    }
+    // if (scroll > 2900) {
+    //   showshowRacesSec(true);
+    // } else {
+    //   showRacesSec(false);
+    // }
+  } else {
+    if (scroll > 250) {
+      showStats(true, 900, 1060);
+    } else {
+      showStats(false);
+    }
+    if (scroll > 350 && scroll < 1000) {
+      if (countRaces.textContent === "0") {
+        imprimirNumerosConIntervalo(150, 15, 145, 250, countRaces, "+", "");
+      }
+      if (countYears.textContent === "0") {
+        imprimirNumerosConIntervalo(15, 10, 10, 250, countYears, "+", "años");
+      }
+    }
+    if (scroll > 1500) {
+      showSlider(true);
+    } else {
+      showSlider(false);
     }
   }
 };
