@@ -15,6 +15,30 @@ const sliderImg = document.querySelectorAll(".slider--img");
 const slider = document.querySelector(".slider");
 const btnSponsors = document.querySelector(".pruebaSponsors");
 const racesSecs = document.querySelector(".races--secs");
+const formulario = document.querySelector(".contacto--formulario");
+const asunto = document.getElementById("formulario--motivo");
+const nombre = document.getElementById("formulario--nombre");
+const telefono = document.getElementById("formulario--telefono");
+const mensaje = document.getElementById("formulario--mensaje");
+function enviarEmail(e) {
+  e.preventDefault();
+  // Obtener los valores del formulario
+  const asunt = asunto.value;
+  const message = `
+  nombre = ${nombre.value},
+  telefono = ${telefono.value},
+  ${mensaje.value}`;
+  console.log(asunt + message);
+  mensaje.value = "";
+  telefono.value = "";
+  nombre.value = "";
+  asunto.value = "";
+  // Componer el enlace "mailto"
+  // const mailtoLink = `mailto:gverza88@gmail.com?subject=${encodeURIComponent("messi")}&body=${encodeURIComponent("messi es el mejor de mundo")}`;
+
+  // Abrir la aplicación de correo predeterminada
+  // window.location.href = mailtoLink;
+}
 
 function imprimirNumerosConIntervalo(
   finalNumero,
@@ -113,10 +137,14 @@ const showStats = (arg, num, numDos) => {
     racesTxt.style.fontSize = "12vw";
     countRaces.style.fontSize = "20vw";
     countYears.style.fontSize = "20vw";
+    yearsTxt.style.opacity = "1";
+    racesTxt.style.opacity = "1";
+    countRaces.style.opacity = "1";
+    countYears.style.opacity = "1";
   } else {
     console.log("okky");
     // fondoStats.style.width = "0vw";
-    countRacesBox.style.opacity = "0";
+    countRacesBox.style.opacity = "1";
     countYearsBox.style.opacity = "0";
     fondoStats.style.opacity = "0";
     fondoStats.style.left = "-155px";
@@ -126,6 +154,10 @@ const showStats = (arg, num, numDos) => {
     // countYears.style.fontSize = "0vw";
     countRaces.textContent = "0";
     countYears.textContent = "0";
+    yearsTxt.style.opacity = "0";
+    racesTxt.style.opacity = "0";
+    countRaces.style.opacity = "0";
+    countYears.style.opacity = "0";
   }
   if (arg && scroll > num) {
     countRacesBox.style.opacity = "0";
@@ -164,7 +196,7 @@ const counterScroll = () => {
     fondo.style.width = "120vw";
     fondo.style.left = "0px";
     portada.style.width = "50%";
-    cajaHero.style.top = "-300px";
+    cajaHero.style.top = "-72vw";
     cajaHero.style.marginBottom = "-300px";
     showPresentation(true);
   } else {
@@ -172,7 +204,7 @@ const counterScroll = () => {
     fondo.style.width = "190vw";
     fondo.style.left = "-110px";
     portada.style.width = "80%";
-    cajaHero.style.top = "-480px";
+    cajaHero.style.top = "-124vw";
   }
   if (showMoreInfo.textContent === "VER MENOS") {
     if (scroll > 1200) {
@@ -241,6 +273,7 @@ const testSpon = () => {
 const init = () => {
   window.addEventListener("scroll", counterScroll);
   showMoreInfo.addEventListener("click", showMoreText);
+  formulario.addEventListener("submit", enviarEmail);
   //   initPopups();
 };
 
