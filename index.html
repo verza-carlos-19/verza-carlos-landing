@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/mediasqueries.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,17 +26,12 @@
   </head>
   <body>
     <header>
-      <img loading="lazy" src="./imgs/logo.png" alt="" class="burger" />
+      <img src="./imgs/logo.png" alt="" class="burger" />
     </header>
     <main>
       <p class="counter--scroll">0</p>
       <section class="hero">
-        <img
-          src="./imgs/img1.jpg"
-          loading="lazy"
-          alt="fondo"
-          class="hero--fondo"
-        />
+        <img src="./imgs/img1.jpg" alt="fondo" class="hero--fondo" />
         <div class="hero--head">
           <img
             src="./imgs/portada.png"
@@ -420,6 +416,6 @@
         </p>
       </div>
     </footer>
-    <script src="./app.js"></script>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>
